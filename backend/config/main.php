@@ -61,17 +61,6 @@ return [
                             '<action>' => 'site/<action>',
                         ],
                 ],
-            'urlManagerFrontend' =>
-                [
-                    'enablePrettyUrl' => true,
-                    'showScriptName'  => false,
-                    'rules'           =>
-                        [
-                            ''         => 'site/index',
-                            '<action>' => 'site/<action>',
-
-                        ],
-                ],
         ],
     'params'               => $params,
 ];
