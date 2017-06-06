@@ -60,7 +60,7 @@ return [
                 ],
             'urlManagerFrontend' => [
                 'class'   => 'yii\web\urlManager',
-                'baseUrl' => '/site',
+                'baseUrl' => '/index',
                 'enablePrettyUrl' => true,
                 'showScriptName'  => false,
                 'rules'           => $routingRules,
