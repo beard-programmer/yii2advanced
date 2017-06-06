@@ -60,7 +60,7 @@ return [
                 ],
             'urlManagerFrontend' => [
                 'class'   => 'yii\web\urlManager',
-                'baseUrl' => 'http:://zdorov.cw89340.tmweb.ru',
+                'baseUrl' => '/zdorov.cw89340.tmweb.ru',
                 'enablePrettyUrl' => true,
                 'showScriptName'  => false,
                 'rules'           => $routingRules,
