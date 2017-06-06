@@ -51,7 +51,7 @@ AppAsset::register($this);
     }
     $menuItems[] = [
         'label' => 'Frontend',
-        'url'   => [Yii::$app->frontendUrlManager->getBaseUrl()]
+        'url'   => [Yii::$app->frontendUrlManager->createUrl()]
     ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

@@ -60,7 +60,7 @@ return [
                 ],
             'frontendUrlManager' => [
                 'class'   => 'yii\web\urlManager',
-                'baseUrl' => '/zdorov/frontend/web',
+                'baseUrl' => '@web/../',
                 'enablePrettyUrl' => true,
                 'showScriptName'  => false,
                 'rules'           => $routingRules,
