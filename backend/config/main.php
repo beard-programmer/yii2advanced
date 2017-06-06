@@ -58,7 +58,7 @@ return [
                     'showScriptName'  => false,
                     'rules'           => $routingRules,
                 ],
-            'frontendUrlManager' => [
+            'urlManagerFrontend' => [
                 'class'   => 'yii\web\urlManager',
                 'baseUrl' => '@web/../',
                 'enablePrettyUrl' => true,
