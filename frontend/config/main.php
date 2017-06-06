@@ -5,6 +5,7 @@ $params = array_merge(
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
+$routingRules = require(__DIR__ . '/../../common/config/routingRules.php');
 
 return [
     'id' => 'app-frontend',
@@ -39,7 +40,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
-            'rules'           => require(__DIR__ . '/routingRules.php'),
+            'rules'           => $routingRules,
         ],
         
     ],

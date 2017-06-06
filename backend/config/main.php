@@ -1,10 +1,11 @@
 <?php
-$params = array_merge(
+$params      = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
+$routingRules = require(__DIR__ . '/../../common/config/routingRules.php');
 
 return [
     'id'                  => 'app-backend',
@@ -55,18 +56,14 @@ return [
                 [
                     'enablePrettyUrl' => true,
                     'showScriptName'  => false,
-                    'rules'           =>
-                        [
-                            ''         => 'site/index',
-                            '<action>' => 'site/<action>',
-                        ],
+                    'rules'           => $routingRules,
                 ],
             'frontendUrlManager' => [
                 'class'   => 'yii\web\urlManager',
-           /*     'baseUrl' => 'http://example.com',*/
+                'baseUrl' => '/zdorov/frontend/web',
                 'enablePrettyUrl' => true,
                 'showScriptName'  => false,
-                'rules'           => require(__DIR__ . '/../../frontend/config/routingRules.php'),
+                'rules'           => $routingRules,
             ],
         ],
     'params'               => $params,
