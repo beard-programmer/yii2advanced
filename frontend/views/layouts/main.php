@@ -35,7 +35,8 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => [Yii::$app->homeUrl]],
+        ['label' => 'Home',  'url' => [Yii::$app->homeUrl]],
+        ['label' => 'Panel',  'url' => [Yii::$app->urlManager->createUrl('crm/site/index')]],
     ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
