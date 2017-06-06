@@ -49,7 +49,10 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
     }
-    $menuItems[] = ['label' => 'ToFront', 'url' => ['/site/index']];
+    $menuItems[] = [
+        'label' => 'Frontend',
+        'url'   => [Yii::$app->frontendUrlManager->getBaseUrl()]
+    ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
