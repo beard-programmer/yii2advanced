@@ -61,6 +61,13 @@ return [
                             '<action>' => 'site/<action>',
                         ],
                 ],
+            'frontendUrlManager' => [
+                'class'   => 'yii\web\urlManager',
+           /*     'baseUrl' => 'http://example.com',*/
+                'enablePrettyUrl' => true,
+                'showScriptName'  => false,
+                'rules'           => require(__DIR__ . '/../../frontend/config/routingRules.php'),
+            ],
         ],
     'params'               => $params,
 ];

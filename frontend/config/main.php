@@ -39,10 +39,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
-            'rules'           => [
-                ''         => 'site/index',
-                '<action>' => 'site/<action>',
-            ],
+            'rules'           => require(__DIR__ . '/routingRules.php'),
         ],
         
     ],
