@@ -49,9 +49,12 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
     }
+
+    var_dump(Yii::$app->urlManagerFrontend->getBaseUrl());exit;
+
     $menuItems[] = [
         'label' => 'Frontend',
-        'url'   => [Yii::$app->urlManagerFrontend->createUrl()]
+        'url'   => [/*Yii::$app->urlManagerFrontend->getBaseUrl()*/]
     ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
