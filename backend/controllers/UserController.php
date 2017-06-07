@@ -61,7 +61,7 @@ class UserController extends Controller
         $users = User::findAll(null);
 
         return $this->render(self::ACTION_LIST, [
-            'users' => User::findAll(null),
+            'users' => User::findAll(''),
         ]);
     }
 }
