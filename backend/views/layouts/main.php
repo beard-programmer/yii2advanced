@@ -35,9 +35,9 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home',  'url'  => ['/site']],
-        ['label' => 'Users', 'url'  => ['/users']],
-        ['label' => 'Orders', 'url' => ['/orders']],
+        ['label' => 'Home',  'url'  => [Yii::$app->homeUrl]],
+        ['label' => 'Users', 'url'  => [Yii::$app->urlManager->createUrl('users')]],
+        ['label' => 'Orders', 'url' => [Yii::$app->urlManager->createUrl('orders')]],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -56,8 +56,6 @@ AppAsset::register($this);
         'label' => 'Frontend',
         'url'   => Yii::$app->urlManagerFrontend->getBaseUrl()
     ];
-
-    var_dump($menuItems);exit;
 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
