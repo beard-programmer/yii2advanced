@@ -57,6 +57,10 @@ class UserController extends Controller
      */
     public function actionList()
     {
-        return $this->render(self::ACTION_LIST);
+        $users = [];
+
+        return $this->render(self::ACTION_LIST, [
+            'users' => $users,
+        ]);
     }
 }

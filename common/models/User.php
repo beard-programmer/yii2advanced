@@ -24,6 +24,10 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE  = 10;
+    const STATUS_MAP     = [
+        self::STATUS_DELETED => 'Deleted',
+        self::STATUS_ACTIVE  => 'Active'
+    ];
 
 
     /**
@@ -113,6 +117,24 @@ class User extends ActiveRecord implements IdentityInterface
         $timestamp = (int) substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatusSemantic()
+    {
+        return self::STATUS_MAP[
+            $this->getStatusCode()
+        ];
     }
 
     /**
