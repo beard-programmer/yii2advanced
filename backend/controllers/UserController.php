@@ -22,11 +22,11 @@ class UserController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['error'],
+                        'actions' => ['list'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['list'],
+                        'actions' => ['add', 'edit'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
