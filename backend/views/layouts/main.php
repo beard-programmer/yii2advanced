@@ -57,6 +57,8 @@ AppAsset::register($this);
         'url'   => Yii::$app->urlManagerFrontend->getBaseUrl()
     ];
 
+    var_dump($menuItems);exit;
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
