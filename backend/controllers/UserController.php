@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use common\models\User;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -57,10 +58,10 @@ class UserController extends Controller
      */
     public function actionList()
     {
-        $users = [];
+        $users = User::findAll(null);
 
         return $this->render(self::ACTION_LIST, [
-            'users' => $users,
+            'users' => User::findAll(null),
         ]);
     }
 }

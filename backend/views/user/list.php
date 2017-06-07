@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
 
     <div class="body-content">
 
-        <table class="table-responsive">
+        <table class="table">
 
             <thead>
 
