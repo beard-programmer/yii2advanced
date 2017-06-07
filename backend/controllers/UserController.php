@@ -1,16 +1,17 @@
 <?php
 namespace backend\controllers;
 
-use Yii;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
+use common\models\User;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
+use yii\web\Controller;
 
-/**
- * Site controller
- */
-class SiteController extends Controller
+class UserController extends Controller
 {
+    const ACTION_LIST = 'list';
+
+    public $defaultAction = self::ACTION_LIST;
+
     /**
      * @inheritdoc
      */
@@ -21,7 +22,11 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['list'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['add', 'edit'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -49,13 +54,19 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
-     *
      * @return string
      */
-    public function actionIndex()
+    public function actionList()
     {
-        return $this->render('index');
+        return $this->render(self::ACTION_LIST, [
+            'users' => User::find()->all(),
+        ]);
     }
 
+    public function actionAdd()
+    {
+        return $this->render('add', [
+            'editUserForm' => null,
+        ]);
+    }
 }

@@ -11,7 +11,6 @@ use yii\web\IdentityInterface;
  * User model
  *
  * @property integer $id
- * @property string $username
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -24,7 +23,11 @@ use yii\web\IdentityInterface;
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const STATUS_ACTIVE  = 10;
+    const STATUS_MAP     = [
+        self::STATUS_DELETED => 'Deleted',
+        self::STATUS_ACTIVE  => 'Active'
+    ];
 
 
     /**
@@ -73,14 +76,12 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Finds user by username
-     *
-     * @param string $username
-     * @return static|null
+     * @param string $email
+     * @return ActiveRecord|null
      */
-    public static function findByUsername($username)
+    public static function findByEmail($email)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -116,6 +117,24 @@ class User extends ActiveRecord implements IdentityInterface
         $timestamp = (int) substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatusSemantic()
+    {
+        return self::STATUS_MAP[
+            $this->getStatusCode()
+        ];
     }
 
     /**

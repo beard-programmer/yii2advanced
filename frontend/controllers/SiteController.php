@@ -80,6 +80,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
