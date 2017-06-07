@@ -58,10 +58,8 @@ class UserController extends Controller
      */
     public function actionList()
     {
-        $users = User::findAll(null);
-
         return $this->render(self::ACTION_LIST, [
-            'users' => User::findAll(''),
+            'users' => User::find()->all(),
         ]);
     }
 }
