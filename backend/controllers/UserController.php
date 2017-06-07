@@ -7,6 +7,10 @@ use yii\web\Controller;
 
 class UserController extends Controller
 {
+    const ACTION_LIST = 'list';
+
+    public $defaultAction = self::ACTION_LIST;
+
     /**
      * @inheritdoc
      */
@@ -51,8 +55,8 @@ class UserController extends Controller
     /**
      * @return string
      */
-    public function actionIndex()
+    public function actionList()
     {
-        return $this->render('index');
+        return $this->render(self::ACTION_LIST);
     }
 }
