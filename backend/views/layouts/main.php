@@ -35,9 +35,9 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home',  'url'  => Yii::$app->homeUrl],
-        ['label' => 'Users', 'url'  => Yii::$app->urlManager->createUrl('users')],
-        ['label' => 'Orders', 'url' => Yii::$app->urlManager->createUrl('orders')],
+        ['label' => 'Home',   'url' => Yii::$app->homeUrl],
+        ['label' => 'Users',  'url' => ['/user/']],
+        ['label' => 'Orders', 'url' => ['/order/']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
