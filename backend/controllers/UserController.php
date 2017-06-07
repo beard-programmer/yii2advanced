@@ -62,4 +62,11 @@ class UserController extends Controller
             'users' => User::find()->all(),
         ]);
     }
+
+    public function actionAdd()
+    {
+        return $this->render('add', [
+            'editUserForm' => null,
+        ]);
+    }
 }

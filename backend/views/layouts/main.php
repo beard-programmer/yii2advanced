@@ -35,26 +35,10 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home',   'url' => Yii::$app->homeUrl],
-        ['label' => 'Users',  'url' => ['/user/list']],
-        ['label' => 'Orders', 'url' => ['/order/list']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->email . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-
-    $menuItems[] = [
-        'label' => 'Frontend',
-        'url'   => Yii::$app->urlManagerFrontend->getBaseUrl()
+        ['label' => 'Home',     'url' => Yii::$app->homeUrl],
+        ['label' => 'Users',    'url' => ['/user/list']],
+        ['label' => 'Orders',   'url' => ['/order/list']],
+        ['label' => 'Frontend', 'url'   => Yii::$app->urlManagerFrontend->getBaseUrl()],
     ];
 
     echo Nav::widget([
